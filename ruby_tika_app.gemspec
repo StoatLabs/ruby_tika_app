@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.name        = 'ruby_tika_app'
   s.version     = '1.24.1'
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Chris Parker']
-  s.email       = %w[mrcsparker@gmail.com]
-  s.homepage    = 'https://github.com/mrcsparker/ruby_tika_app'
+  s.authors     = ['Chris Parker', 'Eric Musgrove']
+  s.email       = %w[mrcsparker@gmail.com eric.musgrove@stoatlabs.com]
+  s.homepage    = 'https://github.com/StoatLabs/ruby_tika_app'
   s.summary     = 'Wrapper around the tika-app jar'
   s.description = 'Wrapper around the tika-app jar'
 

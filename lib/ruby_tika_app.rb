@@ -7,8 +7,6 @@ require 'stringio'
 require 'open4'
 
 class RubyTikaApp
-  TIKA_APP_VERSION = '1.24.1'
-
   class Error < RuntimeError; end
 
   class CommandFailedError < Error
@@ -28,7 +26,7 @@ class RubyTikaApp
     java_cmd = 'java'
     java_args = '-server -Djava.awt.headless=true -Dfile.encoding=UTF-8'
     ext_dir = File.join(File.dirname(__FILE__))
-    tika_path = "#{ext_dir}/../ext/tika-app-#{TIKA_APP_VERSION}.jar"
+    tika_path = "/opt/tika-app.jar"
     tika_config_path = "#{ext_dir}/../ext/tika-config.xml"
 
     @tika_cmd = "#{java_cmd} #{java_args} -jar '#{tika_path}' --config='#{tika_config_path}'"
@@ -69,8 +67,7 @@ class RubyTikaApp
     stderr_result = stderr.read.strip
 
     if stdout_result.empty? && !stderr_result.empty?
-      raise(CommandFailedError.new(stderr_result),
-            "execution failed with status #{stderr_result}: #{final_cmd}")
+      raise(CommandFailedError.new(stderr_result), "execution failed with status #{stderr_result}: #{final_cmd}")
     end
 
     stdout_result
